@@ -1,0 +1,24 @@
+<h2>Inventario de Productos</h2>
+
+<p *ngIf="rolUsuario">Tu rol actual: <strong>{{ rolUsuario | titlecase }}</strong></p>
+
+---
+
+<h3>Listado de Productos:</h3>
+<ul *ngIf="productos.length > 0; else noProducts">
+  <li *ngFor="let producto of productos">
+    {{ producto.nombre }} - Cantidad: {{ producto.cantidad }}
+  </li>
+</ul>
+
+<ng-template #noProducts>
+  <p>El inventario está vacío.</p>
+</ng-template>
+
+---
+
+<div *ngIf="rolUsuario === 'admin'">
+  <button (click)="vaciarInventario()" class="btn-clear-inventory">
+    Vaciar Inventario (Solo Admin)
+  </button>
+</div>
