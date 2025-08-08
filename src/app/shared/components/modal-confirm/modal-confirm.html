@@ -1,0 +1,8 @@
+<mat-card>
+  <mat-card-content>
+    <p>{{ data.mensaje }}</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="dialogRef.close(false)">Cancelar</button>
+    <button mat-button color="primary" (click)="dialogRef.close(true)">{{ data.btnNombre }}</button>
+  </mat-card-actions>
